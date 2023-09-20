@@ -1,0 +1,82 @@
+
+<form action="/upload" method="POST" enctype="multipart/form-data">
+<div id="upload-area">
+    <label for="file-input"><h2>>> Drag and drop a file...</h2></label>
+    <input type="file" id="file-input" accept=".pdf" style="display: none;">
+    <div id="drop-area" style="font-size:85%">
+        (a PDF of an 8872 form)
+    </div>
+</div>
+
+<div id="loading-message">
+    <h2>Uploading PDF...</h2>
+</div>
+
+<script>
+    let uploadedFileName = "";
+    const uploadArea = document.getElementById("upload-area");
+    const dropArea = document.getElementById('drop-area');
+    const fileInput = document.getElementById('file-input');
+    const loadingMessage = document.getElementById('loading-message');
+
+    dropArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropArea.style.border = '2px dashed #aaa';
+    });
+
+    dropArea.addEventListener('dragleave', () => {
+        dropArea.style.border = '2px dashed #ccc';
+    });
+
+    dropArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropArea.style.border = '2px dashed #ccc';
+
+        loadingMessage.style.display = 'block';
+        uploadArea.style.display = "none";
+
+        const file = e.dataTransfer.files[0];
+        handleFileUpload(file);
+    });
+
+    fileInput.addEventListener('change', () => {
+        loadingMessage.style.display = 'block';
+        uploadArea.style.display = "none";
+
+        const file = fileInput.files[0];
+        handleFileUpload(file);
+    });
+
+    function handleFileUpload(file) {
+        if (file) {
+            const formData = new FormData();
+            formData.append('file', file);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                alert(data.message);
+                loadingMessage.style.display = 'none';
+                uploadArea.style.display = "block";
+                
+                uploadedFileName = file.name;
+                localStorage.setItem('fileName', uploadedFileName);
+                window.location.href = '/download';
+
+            })
+            .catch(error => {
+                console.error(error);
+                alert('Error uploading PDF.');
+                
+                loadingMessage.style.display = 'none';
+                uploadArea.style.display = "block";
+            });
+        }
+    }
+</script>
+
+</form>

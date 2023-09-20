@@ -1,0 +1,25 @@
+<div id="download-area">
+    <button style="margin-top: 1.5em;" onclick="downloadFile()">Download File</button>
+</div>
+
+<p><span>{{ arc_path }}</span></p>
+
+
+<script>
+    function downloadFile() {
+
+        const a = document.createElement('a');
+        a.style.display = 'none';
+
+        // Set the file URL and name
+        a.href = "{{ arc_path }}"; // Replace with the actual file URL or path
+        a.download = "selecto.zip";    // Replace with the desired file name
+
+        // Trigger a click event to start the download
+        document.body.appendChild(a);
+        a.click();
+
+        // Clean up
+        document.body.removeChild(a);
+    }
+</script>

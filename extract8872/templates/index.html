@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+    <title>8872 Data Extractor</title>
+</head>
+<body>
+    <header>
+        <a href="/">
+            <h1>8872 Data Extractor</h1>
+        </a>
+        
+    </header>
+    <div class="the-body">
+        <img width="300px" src="{{ url_for('static', filename='images/devastator.jpeg') }}">
+        {% include content_page %}
+    </div>
+<p class="attribution"><em>*** by <a href="https://dnpdata.com">Andy Friedman</a></em></p>
+</body>
+</html>
