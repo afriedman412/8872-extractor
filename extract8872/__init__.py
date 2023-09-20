@@ -2,9 +2,9 @@ from flask import Flask, request, render_template, jsonify, session, send_file
 from .helpers import extract_one_file, create_files
 import io
 import pdfplumber
-import zipfile
-import tempfile
+import glob
 import os
+
 
 app = Flask(__name__)
 app.secret_key = "xxxxxx"
@@ -32,4 +32,6 @@ def upload_pdf():
 
 @app.route('/download')
 def download():
-    return send_file(session['arc_path'])
+    dir_path = os.path.dirname(session['arc_path'])
+    csvcsv = glob.glob(os.path.join(dir_path, "/*.csv"))
+    return send_file(csvcsv[0])
