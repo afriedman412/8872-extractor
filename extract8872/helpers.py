@@ -64,7 +64,7 @@ def create_files(data_out, file_name):
     arc_path = os.path.join(temp_dir, file_name+".zip")
     with zipfile.ZipFile(arc_path, "w") as zip:
         for file_path in file_paths:
-            zip.write(file_path, arcname=arc_path)
+            zip.write(file_path, arcname=file_path.split("/")[-1])
     return arc_path
 
 def make_df(
