@@ -14,9 +14,15 @@
         
     </header>
     <div class="the-body">
+        <div>
+            <p>Political Action Commitees (PACs) are required to regularly submit <a href='https://www.irs.gov/charities-non-profits/political-organizations/periodic-reports-form-8872'>IRS Form 8872</a> to report their financial activity.</p> 
+            <p>This app extracts all the information from an 8872 as a PDF and returns an archive of two CSV files (one for contributions and one for expenses).
+            </p>
+        </div>
         <img width="300px" src="{{ url_for('static', filename='images/devastator.jpeg') }}">
         {% include content_page %}
     </div>
-<p class="attribution"><em>*** by <a href="https://dnpdata.com">Andy Friedman</a></em></p>
+<p class="attribution">
+    <em>*** by <a href="https://dnpdata.com">Andy Friedman</a></em></p>
 </body>
 </html>

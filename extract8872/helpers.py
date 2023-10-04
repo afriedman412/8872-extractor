@@ -56,8 +56,9 @@ def create_files(data_out, file_name):
     temp_dir = tempfile.mkdtemp()
     file_paths = []
     for schedule, data in data_out.items():
+        data_type = "contributions" if schedule == 'a' else "expenses"
         df = make_df(data, schedule)
-        file_path = os.path.join(temp_dir, f"{file_name}_{schedule}.csv")
+        file_path = os.path.join(temp_dir, f"{file_name}_{schedule}_{data_type}.csv")
         df.to_csv(os.path.join(temp_dir, file_path))
         file_paths.append(file_path)
 
