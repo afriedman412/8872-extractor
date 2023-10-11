@@ -20,11 +20,11 @@ def upload_pdf():
     if file.filename == '':
         return jsonify({'error': 'No selected file'})
 
-    pdf_data = io.BytesIO(file.read())
-    p = pdfplumber.open(pdf_data)
-    extracted_data = extract_one_file(p)
-    file_name = file.filename.replace(".pdf", "")
-    session['arc_path'] = create_files(extracted_data, file_name)
+    with io.BytesIO(file.read()) as pdf_data:
+        with pdfplumber.open(pdf_data) as p:
+            extracted_data = extract_one_file(p)
+            file_name = file.filename.replace(".pdf", "")
+            session['arc_path'] = create_files(extracted_data, file_name)
     
     return jsonify({'message': 'File uploaded successfully'})
 
