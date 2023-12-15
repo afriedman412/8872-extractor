@@ -1,23 +1,26 @@
-blinker==1.6.2
-cffi==1.15.1
-charset-normalizer==3.2.0
-click==8.1.7
-cryptography==41.0.4
-Flask==2.3.3
-gunicorn==21.2.0
-itsdangerous==2.1.2
-Jinja2==3.1.2
-MarkupSafe==2.1.3
-numpy==1.25.2
-packaging==23.1
-pandas==2.1.0
-pdfminer.six==20221105
-pdfplumber==0.10.2
-Pillow==10.0.1
-pycparser==2.21
-pypdfium2==4.20.0
-python-dateutil==2.8.2
-pytz==2023.3.post1
-six==1.16.0
-tzdata==2023.3
-Werkzeug==2.3.7
+blinker==1.6.3 ; python_version >= "3.9" and python_version < "4.0"
+cffi==1.16.0 ; python_version >= "3.9" and python_version < "4.0"
+charset-normalizer==3.3.0 ; python_version >= "3.9" and python_version < "4.0"
+click==8.1.7 ; python_version >= "3.9" and python_version < "4.0"
+colorama==0.4.6 ; python_version >= "3.9" and python_version < "4.0" and platform_system == "Windows"
+cryptography==41.0.4 ; python_version >= "3.9" and python_version < "4.0"
+flask==2.3.3 ; python_version >= "3.9" and python_version < "4.0"
+gunicorn==21.2.0 ; python_version >= "3.9" and python_version < "4.0"
+importlib-metadata==6.8.0 ; python_version >= "3.9" and python_version < "3.10"
+itsdangerous==2.1.2 ; python_version >= "3.9" and python_version < "4.0"
+jinja2==3.1.2 ; python_version >= "3.9" and python_version < "4.0"
+markupsafe==2.1.3 ; python_version >= "3.9" and python_version < "4.0"
+numpy==1.26.0 ; python_version >= "3.9" and python_version <= "3.11"
+packaging==23.2 ; python_version >= "3.9" and python_version < "4.0"
+pandas==2.1.1 ; python_version >= "3.9" and python_version < "4.0"
+pdfminer-six==20221105 ; python_version >= "3.9" and python_version < "4.0"
+pdfplumber==0.10.2 ; python_version >= "3.9" and python_version < "4.0"
+pillow==10.0.1 ; python_version >= "3.9" and python_version < "4.0"
+pycparser==2.21 ; python_version >= "3.9" and python_version < "4.0"
+pypdfium2==4.21.0 ; python_version >= "3.9" and python_version < "4.0"
+python-dateutil==2.8.2 ; python_version >= "3.9" and python_version < "4.0"
+pytz==2023.3.post1 ; python_version >= "3.9" and python_version < "4.0"
+six==1.16.0 ; python_version >= "3.9" and python_version < "4.0"
+tzdata==2023.3 ; python_version >= "3.9" and python_version < "4.0"
+werkzeug==3.0.0 ; python_version >= "3.9" and python_version < "4.0"
+zipp==3.17.0 ; python_version >= "3.9" and python_version < "3.10"
